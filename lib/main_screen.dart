@@ -17,14 +17,7 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         title: Text(tabs[selectedPosition]),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-        ),
-        backgroundColor: Colors.deepOrange,
-      ),
+      floatingActionButton: FloatingActionButton(onPressed: (){}, child: Icon(Icons.add),),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: _buildBottomTab(),
     );
@@ -34,51 +27,30 @@ class _MainScreenState extends State<MainScreen> {
     return BottomAppBar(
       color: Colors.deepPurple,
       shape: CircularNotchedRectangle(),
-      clipBehavior: Clip.antiAlias,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          TabItem(
-            icon: Icons.home,
-            title: tabs[0],
-            isSelected: selectedPosition == 0,
-            onTap: () {
-              setState(() {
-                selectedPosition = 0;
-              });
-            },
-          ),
-          TabItem(
-            icon: Icons.person,
-            title: tabs[1],
-            isSelected: selectedPosition == 1,
-            onTap: () {
-              setState(() {
-                selectedPosition = 1;
-              });
-            },
-          ),
-          new Padding(padding: EdgeInsets.only(right: 24.0, left: 24.0)),
-          TabItem(
-            icon: Icons.help,
-            title: tabs[2],
-            isSelected: selectedPosition == 2,
-            onTap: () {
-              setState(() {
-                selectedPosition = 2;
-              });
-            },
-          ),
-          TabItem(
-            icon: Icons.settings,
-            title: tabs[3],
-            isSelected: selectedPosition == 3,
-            onTap: () {
-              setState(() {
-                selectedPosition = 3;
-              });
-            },
-          ),
+          TabItem(text: tabs[0], icon: Icons.home, isSelected: selectedPosition == 0, onTap: () {
+            setState(() {
+              selectedPosition = 0;
+            });
+          },),
+          TabItem(text: tabs[1], icon: Icons.person, isSelected: selectedPosition == 1, onTap: () {
+            setState(() {
+              selectedPosition = 1;
+            });
+          },),
+          SizedBox(width: 48,),
+          TabItem(text: tabs[2], icon: Icons.help, isSelected: selectedPosition == 2, onTap: () {
+            setState(() {
+              selectedPosition = 2;
+            });
+          },),
+          TabItem(text: tabs[3], icon: Icons.settings, isSelected: selectedPosition == 3, onTap: () {
+            setState(() {
+              selectedPosition = 3;
+            });
+          },),
         ],
       ),
     );
